@@ -1,0 +1,145 @@
+<style>
+.invoice-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.invoice-title {
+    background-color: #e62352;
+    padding: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.invoice-title h2 {
+    margin: 0 0 5px;
+    font-size: 28px; /* Adjusted font size */
+}
+
+.invoice-title h3 {
+    margin: 0;
+    font-size: 24px; /* Adjusted font size */
+}
+
+.invoice-container > div > *{
+    margin-bottom: 5px;
+}
+
+.invoice-details, .client-details, .course-details {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.invoice-details h3, .client-details h3, .course-details h3 {
+    margin: 0 0 10px;
+    font-size: 20px; /* Adjusted font size */
+}
+
+.go_profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px 50px;
+}
+.go_profile > a{
+    transition: 0.5s;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #121212BB;
+    padding: 20px;
+    border-radius: 28px;
+}
+.go_profile > a:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #e62352;
+}
+</style>
+
+<div id="invoice-container" class="invoice-container">
+    <div id="invoice-title" class="invoice-title">
+        <h2>Здравейте, <span class="client_name"><span></h2>
+        <p>Вие успешно се записахте за следния курс:</p>
+        <h3>"<span id="course_title"></span>"</h3>
+    </div>
+
+    <div id="invoice-details" class="invoice-details">
+        <h3>Информация за фактура:</h3>
+        <p>Идентификационен номер на фактура: <span id="invoice_id"></span></p>
+        <p>Цена на курса: <span id="invoice_price"></span> BGN</p>
+    </div>
+
+    <div id="client-details" class="client-details">
+        <h3>Информация за клиента:</h3>
+        <p>Клиентски идентификатор: <span id="client_id"></span></p>
+        <p>Email: <span id="client_email"></span></p>
+        <p>Име: <span class="client_name"><span></p>
+    </div>
+
+    <div id="course-details" class="course-details">
+        <h3>Информация за курса:</h3>
+        <p>Идентификатор на курса: <span id="course_id"></span></p>
+        <p>Преподавател: <span id="course_lecturer"></span></p>
+        <p>Ниво на курса: <span id="course_level"></span></p>
+        <p>Статус на курса: <span id="course_status"></span></p>
+    </div>
+
+    <div class="go_profile">
+        <a href="/profile/info">Вижте курса във вашия профил</a>
+    </div>
+</div>
+
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    const formData = new FormData();
+    formData.append('course_id', id);
+
+    fetch('/api/course/sign?' + new URLSearchParams(formData))
+    .then(response => response.json())
+    .then(courses => {
+        const course = courses[0];
+
+        const invoice_data = {
+            sign: {
+                id: course.sign_id
+            },
+            client: {
+                id: course.client_id,
+                email: course.client_email,
+                first_name: course.client_first_name,
+                last_name: course.client_last_name
+            },
+            course: {
+                id: course.course_id,
+                title: course.course_title,
+                date: course.course_date,
+                price: course.course_price,
+                course_lecturer: course.course_lecturer,
+                level: course.course_level,
+                status: course.course_status,
+            }
+        }
+        
+        console.log(invoice_data)
+
+        document.querySelectorAll('.client_name').forEach(element => {
+            element.innerHTML = invoice_data.client.first_name + " " + invoice_data.client.last_name;
+        })
+
+        document.getElementById('course_title').innerHTML = invoice_data.course.title;
+        document.getElementById('invoice_id').innerHTML = invoice_data.sign.id;
+        document.getElementById('invoice_price').innerHTML = invoice_data.course.price;
+        document.getElementById('client_id').innerHTML = invoice_data.client.id;
+        document.getElementById('client_email').innerHTML = invoice_data.client.email;
+        document.getElementById('course_id').innerHTML = invoice_data.course.id;
+        document.getElementById('course_lecturer').innerHTML = invoice_data.course.course_lecturer;
+        document.getElementById('course_level').innerHTML = invoice_data.course.level;
+        document.getElementById('course_status').innerHTML = invoice_data.course.status;
+    });
+
+</script>

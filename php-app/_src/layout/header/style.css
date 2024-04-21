@@ -1,0 +1,21 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img{
+    padding: 20px 0px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    padding: 20px 0px;
+    font-size: 18px;
+}
+
+nav > *{
+    cursor: pointer;
+}

@@ -1,0 +1,331 @@
+<style>
+    .hero > img{
+        width: 100%;
+    }
+</style>
+
+<div class="hero">
+    <?php Modules::ImageModule()->Load_Image(__DIR__ . '/hero.jpg') ?>
+</div>
+
+<style>
+.courses > p{
+	text-align: center;
+	font-size: 60px;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+	color: #121212BB;
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+.ag-format-container {
+  width: 1142px;
+  margin: 0 auto;
+}
+.ag-courses_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.ag-courses_item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+
+  margin: 0 15px 30px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #121212BB;
+
+  overflow: hidden;
+
+  position: relative;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+  text-decoration: none;
+  color: #FFF;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  min-height: 87px;
+  margin: 0 0 25px;
+
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 30px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #FFF;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color .5s ease;
+  -o-transition: color .5s ease;
+  transition: color .5s ease
+}
+.ag-courses-item_bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+  background-color: #3ecd5e;
+}
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+  background-color: #e44002;
+}
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+  background-color: #952aff;
+}
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+  background-color: #cd3e94;
+}
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+  background-color: #4c49ea;
+}
+
+.all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 50px;
+}
+
+.all > a{
+    transition: 0.5s;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #121212BB;
+    padding: 20px;
+    border-radius: 28px;
+}
+.all > a:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: #e62352;
+}
+
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+</style>
+<div class="courses">
+	<p>Наши курсове</p>
+    <div class="ag-format-container">
+        <div class="ag-courses_box" id="ag-courses_box">
+            <!-- <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                UI/Web&amp;Graph design for teenagers 11-17&#160;years old
+                </div>
+
+                <div class="ag-courses-item_date-box">
+                Start:
+                <span class="ag-courses-item_date">
+                    04.11.2022
+                </span>
+                </div>
+            </a>
+            </div>
+
+            <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                UX/UI Web-Design&#160;+ Mobile Design
+                </div>
+
+                <div class="ag-courses-item_date-box">
+                Start:
+                <span class="ag-courses-item_date">
+                    04.11.2022
+                </span>
+                </div>
+            </a>
+            </div>
+
+            <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                Annual package "Product+UX/UI+Graph designer&#160;2022"
+                </div>
+
+                <div class="ag-courses-item_date-box">
+                Start:
+                <span class="ag-courses-item_date">
+                    04.11.2022
+                </span>
+                </div>
+            </a>
+            </div>
+
+            <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                Graphic Design
+                </div>
+
+                <div class="ag-courses-item_date-box">
+                Start:
+                <span class="ag-courses-item_date">
+                    04.11.2022
+                </span>
+                </div>
+            </a>
+            </div>
+
+            <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+                <div class="ag-courses-item_bg"></div>
+
+                <div class="ag-courses-item_title">
+                Motion Design
+                </div>
+
+                <div class="ag-courses-item_date-box">
+                Start:
+                <span class="ag-courses-item_date">
+                    30.11.2022
+                </span>
+                </div>
+            </a>
+            </div>
+
+            <div class="ag-courses_item">
+                <a href="#" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                    Front-end development&#160;+ jQuery&#160;+ CMS
+                    </div>
+                </a>
+            </div> -->
+        </div>
+
+        <div class="all">
+            <a href="/courses/list">Вижте всички курсове</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateHTML(id, title, date) {
+        const container = document.createElement('div');
+        container.classList.add('ag-courses_item');
+
+        const link = document.createElement('a');
+        link.setAttribute('href', '/courses/single?id=' + id);
+        link.classList.add('ag-courses-item_link');
+
+        const background = document.createElement('div');
+        background.classList.add('ag-courses-item_bg');
+        link.appendChild(background);
+
+        const titleElement = document.createElement('div');
+        titleElement.classList.add('ag-courses-item_title');
+        titleElement.textContent = title;
+        link.appendChild(titleElement);
+
+        const dateBox = document.createElement('div');
+        dateBox.classList.add('ag-courses-item_date-box');
+        dateBox.textContent = 'Start: ';
+
+        const dateSpan = document.createElement('span');
+        dateSpan.classList.add('ag-courses-item_date');
+        dateSpan.textContent = date;
+        dateBox.appendChild(dateSpan);
+
+        link.appendChild(dateBox);
+        container.appendChild(link);
+
+        document.getElementById('ag-courses_box').appendChild(container);
+    }
+
+    fetch('/api/courses')
+        .then(response => response.json())
+        .then(responce => responce.slice(-6))
+        .then(courses => {
+            courses.forEach(course => {
+                generateHTML(course.id, course.title, course.date);
+            });
+        });
+
+</script>
