@@ -1,20 +1,20 @@
 # Language-academy-management
 
-### Изисквания:
-- Инсталиран docker, docker-compose
-- Свободни портове на localhost: 8082, 8083
+### Requirements:
+- Installed docker, docker-compose
+- Free ports on localhost: 8082, 8083
 
-### Стартиране:
-Изпълнение на командата:
+### Launch:
+Executing the command:
 ```sh
 docker-compose up --build
 ```
 
-### Тестова акаунт:
-Имейл: `user1@example.com`
-Парола: `password1`
+### Test account:
+Email: `user1@example.com`
+Password: `password1`
 
-### MySQL акаунт:
+### MySQL account:
 Host: `mysql`
 User: `myuser`
 Password: `mypassword`
